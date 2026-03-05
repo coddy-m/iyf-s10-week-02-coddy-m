@@ -252,7 +252,7 @@ p             { color: var(--color-muted); }
 
 .about {
   padding: 6rem 5% 8rem;
-  background-color: brown;
+  background-color: teal;
 }
 
 .about h2 {
@@ -528,4 +528,5 @@ p             { color: var(--color-muted); }
   }
 
 }
+
 
