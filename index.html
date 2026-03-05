@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michelle – Portfolio</title>
+
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">Michelle</div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Hello, I'm Michelle</h1>
+      <p>Web Developer & Creative Thinker based in Nairobi</p>
+      <a href="#" class="btn">See My Work ↓</a>
+    </section>
+
+    <section class="projects">
+      <div class="container">
+        <h2>My Recent Projects</h2>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+              alt="E-commerce Website"
+            />
+            <div class="card-content">
+              <h3>E-commerce Platform</h3>
+              <p>
+                Built a full online store with product filtering, cart, and
+                checkout using HTML, CSS & JavaScript.
+              </p>
+              <a href="#" class="btn card-btn">View Project</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+              alt="Dashboard App"
+            />
+            <div class="card-content">
+              <h3>Admin Dashboard</h3>
+              <p>
+                Responsive analytics dashboard with charts, user management, and
+                dark mode toggle.
+              </p>
+              <a href="#" class="btn card-btn">View Project</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1460925898913-fff6a4d8b3f8?auto=format&fit=crop&w=800&q=80"
+              alt="Blog Website"
+            />
+            <div class="card-content">
+              <h3>Personal Blog</h3>
+              <p>
+                Minimalist blog with article cards, search, categories, and
+                responsive design for mobile reading.
+              </p>
+              <a href="#" class="btn card-btn">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <h2>About Me</h2>
+
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Hi! I'm Michelle, a passionate web developer from Nairobi, Kenya.
+              I love turning ideas into beautiful, functional websites that
+              people enjoy using.
+            </p>
+            <p>
+              With experience in HTML, CSS. I endevour to learning JavaScript,
+              and modern frameworks. I focus on creating responsive, accessible,
+              and fast-loading sites. When I'm not coding, you can find me
+              reading tech blogs, or experimenting with new design trends.
+            </p>
+            <p>
+              I'm always excited to collaborate on interesting projects — let's
+              build something amazing together!
+            </p>
+            <a href="#contact" class="btn">Get in Touch</a>
+          </div>
+
+          <div class="about-photo">
+            <img
+              src="https://github.com/coddy-m/iyf-s10-week-02-coddy-hub/blob/main/images/michell-nairobi.jpeg?raw=true" alt="Michelle  in Nairobi"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>Let's Work Together</h2>
+        <p class="contact-subtitle">
+          Have a project in mind? Drop me a message — I'll get back to you
+          within 24-48 hours!
+        </p>
+
+        <form class="contact-form">
+          <div class="form-group">
+            <input type="text" id="name" name="name" required placeholder=" " />
+            <label for="name">Your Name *</label>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder=" "
+            />
+            <label for="email">Your Email *</label>
+          </div>
+
+          <div class="form-group">
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              required
+              placeholder=" "
+            ></textarea>
+            <label for="message">Your Message *</label>
+          </div>
+
+          <button type="submit" class="btn submit-btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- NEW: Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <!-- Column 1: About / Brand -->
+          <div class="footer-col">
+            <h3>Michelle</h3>
+            <p>
+              Web Developer based in Nairobi, creating clean & modern digital
+              experiences.
+            </p>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Social -->
+          <div class="footer-col">
+            <h3>Connect</h3>
+            <ul class="social-links">
+              <li>
+                <a href="https://github.com/yourusername" target="_blank"
+                  >GitHub</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 Michelle. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
