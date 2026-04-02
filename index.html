@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="styles.css">
+ 
 </head>
 <body>
 
@@ -32,17 +33,131 @@
       </ul>
     </nav>
   </header>
+  
 
   <!-- Hero -->
   <section id="home" class="hero">
-    <h1>Hello, I'm Michelle</h1>
-    <p>Web Developer & Creative Thinker based in Nairobi</p>
-    <div class="about-photo">
-          <img src="images/90881e72e0ba8c301ad8b89338846800_0.jpeg" alt="Michelle">
-        </div> 
-  </section>
-    <a href="#projects" class="btn">See My Work </a>    
+  <div class="hero-content">
+     <section class="about-me">
+  <div class="about-container">
+    
+    <!-- Pink oval frame + photo -->
+    <div class="about-image">
+      <div class="photo-frame">
+        <img src="images/90881e72e0ba8c301ad8b89338846800_0.jpeg" alt="Michelle - Web Developer in Nairobi">
+      </div>
+    </div>
+    
+    <!-- Text content on the right -->
+    <div class="about-text">
+      <h1>Hello, I'm Michelle</h1>
+      <p class="subtitle">Web Developer & Creative Thinker based in Nairobi</p>
+      
+      <!-- Add more details about yourself here -->
+      <p>I'm a passionate web developer who loves building beautiful, functional, and user-friendly websites. With a keen eye for design and clean code, I create digital experiences that stand out.</p>
+      
+      <a href="#projects" class="btn">See My Work</a>
+    </div>
+    <style>
+    .about-me {
+  padding: 100px 20px;
+  background: #b2f1df;   /* light background like your screenshot */
+}
 
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;               /* space between image and text */
+  flex-wrap: wrap;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.photo-frame {
+  position: relative;
+  width: 320px;            /* adjust size as needed */
+  height: 500px;           /* taller for portrait oval */       
+  border-radius: 800%;      /* makes it oval/elliptical */
+  padding: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);  /* soft shadow like a real frame */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* keeps proportions without stretching */
+  border-radius: 50%;      /* keeps the photo itself oval */
+}
+
+/* Text side */
+.about-text {
+  flex: 2;
+  min-width: 320px;
+}
+
+.about-text h1 {
+  font-size: 3.2rem;
+  color: #fafafa;          /* matches your red text */
+  margin-bottom: 8px;
+}
+
+.about-text .subtitle {
+  font-size: 1.35rem;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.about-text p {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #3d7eaa;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #c1121f;
+}
+
+/* Responsive: image stacks on top on mobile */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+  
+  .photo-frame {
+    width: 260px;
+    height: 310px;
+    margin: 0 auto;
+  }
+}
+    </style>
+  </div>
+</section>
+
+</div>
 
   <!-- Projects -->
         <!-- Projects -->
@@ -58,30 +173,31 @@
                    alt="To-do List App">
               <div class="card-content">
                 <h3>To-do List App</h3>
-                <p>Clean and intuitive task manager with add, edit, delete, and local storage features.</p>
-                
+                <p>Clean and intuitive task manager with add, edit, delete, and local storage features.</p> 
+
+                <!--Demo Link-->
+                <div class="project-links">
+                  <a href="https://coddy-m.github.io/todo-list-app/"
+                  target="_blank"
+                  class="btn demo-btn">Live demo</a>
               </div>
+            </div>
             </div>
             
             <!-- Weather App -->
-<div class="project-card">
-    <img src="https://images.unsplash.com/photo-1502211049453-... " 
-         alt="Weather App">
-    <div class="card-content">
-        <h3>Weather App</h3>
-        <p>Real-time weather application with location detection, 5-day forecast, and beautiful UI.</p>
-        
-        <!-- Demo & Code links -->
-        <div class="project-links">
-            <a href="https://coddy-m.github.io/weather-dashboard/" 
-               target="_blank" 
-               class="btn demo-btn">Live Demo</a>
-            <a href="https://coddy-m.github.io/weather-dashboard/" 
-               target="_blank" 
-               class="btn code-btn">View Code</a>
-        </div>
-    </div>
-</div>
+            <div class="project-card">
+              <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800&q=80" 
+                   alt="Weather App">
+              <div class="card-content">
+                <h3>Weather App</h3>
+                <p>Real-time weather application with location detection, 5-day forecast, and beautiful UI.</p>
+            
+                <!--Demo Links-->
+               <div class="project-links">
+                <a href="https://coddy-m.github.io/weather-dashboard/"
+                    target="_blank"
+                    class="btn demo-btn">Live Demo</a>
+               </div>                 
               </div>
             </div>
             
@@ -101,24 +217,7 @@
       </section>
         
 
-  <!-- About -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2>About Me</h2>
-      
-      <div class="about-content">
-        <div class="about-text">
-          <p>Hi! I'm Michelle, a passionate web developer from Nairobi, Kenya.</p>
-          <p>I love turning ideas into beautiful, functional websites. With experience in HTML, CSS, and JavaScript, I create responsive and fast-loading sites.</p>
-          <p>When I'm not coding, I enjoy exploring Nairobi's coffee scene and trying new design trends.</p>
-          <a href="#contact" class="btn">Get in Touch</a>
-        </div>
-        
-        
-      </div>
-    </div>
-  </section>
-
+  
   <!-- Contact -->
   <section id="contact" class="contact">
     <div class="container">
@@ -201,7 +300,6 @@
     });
 </script>   
 
-  //================== EMAILJS SETUP ==================
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 
 </script>

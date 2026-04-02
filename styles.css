@@ -17,7 +17,7 @@ body {
 
 :root {
   --color-primary:       #2c2b30;   
-  --color-primary-dark:#f58f7c;
+  --color-primary-dark: #2c2b30;
   --color-primary-light:#f2c4ce;
   --color-background:  #4f4f51;
   --color-text:        #111827;    
@@ -324,7 +324,7 @@ p             { color: var(--color-muted); }
   height: auto;
   border-radius: 50%;             
   border: 6px solid var(--color-primary-light);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 32px rgba(97, 233, 233, 0.12);
   object-fit: cover;
   transition: transform 0.4s ease;
 }
@@ -351,7 +351,7 @@ p             { color: var(--color-muted); }
 
 .contact {
   padding: 6rem 5% 8rem;
-  background-color: var(--color-background);
+  background-color: whitesmoke;
   text-align: center;
 }
 
