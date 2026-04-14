@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Challenges - Michelle's Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container" style="padding: var(--space-2xl) var(--space-md);">
+    <h1>Daily Challenges (Days 1-5)</h1>
+    
+    <!-- Day 1: Button Styles -->
+    <section class="exercise" style="background: white; padding: var(--space-lg); border-radius: var(--radius-md); margin-bottom: var(--space-xl);">
+      <h2>Day 1: Button Styles</h2>
+      <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; align-items: center;">
+        <button class="btn btn--primary">Primary</button>
+        <button class="btn btn--secondary">Secondary</button>
+        <button class="btn btn--danger">Danger</button>
+        <button class="btn btn--disabled" disabled>Disabled</button>
+      </div>
+    </section>
+
+    <!-- Day 2: Card Component -->
+    <section class="exercise" style="background: white; padding: var(--space-lg); border-radius: var(--radius-md); margin-bottom: var(--space-xl);">
+      <h2>Day 2: Reusable Card</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-lg); justify-content: center;">
+        <article class="card" style="width: 300px;">
+          <img src="https://picsum.photos/600/400" class="card__img" alt="Demo card">
+          <div class="card__body">
+            <h3 class="card__title">Reusable Card</h3>
+            <p class="card__desc">Features image, title, description, tags, CTA button, and hover shadow effect.</p>
+            <div class="card__tags">
+              <span class="card__tag">UI</span>
+              <span class="card__tag">CSS</span>
+              <span class="card__tag">Responsive</span>
+            </div>
+            <button class="btn btn--primary card__btn">Learn More</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Day 3: Hero Section -->
+    <section class="exercise" style="background: white; padding: var(--space-lg); border-radius: var(--radius-md); margin-bottom: var(--space-xl);">
+      <h2>Day 3: Hero Section</h2>
+      <p><em>✅ Implemented in index.html (see #home section)</em></p>
+      <p>Features: Full viewport height, background with overlay, centered text, responsive sizing, CTA button.</p>
+    </section>
+
+    <!-- Day 4: Form Styling -->
+    <section class="exercise" style="background: white; padding: var(--space-lg); border-radius: var(--radius-md); margin-bottom: var(--space-xl);">
+      <h2>Day 4: Form Styling</h2>
+      <form style="max-width: 500px; margin: 0 auto;" onsubmit="return false;">
+        <div class="form-group">
+          <input type="email" id="challenge-email" placeholder=" " required>
+          <label for="challenge-email">Email (Test :invalid)</label>
+          <span class="form-error">Please enter a valid email address.</span>
+        </div>
+        <button type="button" class="btn btn--primary" onclick="document.getElementById('challenge-email').value='invalid'">Test Invalid</button>
+        <button type="button" class="btn btn--secondary" onclick="document.getElementById('challenge-email').value='valid@example.com'">Test Valid</button>
+      </form>
+    </section>
+
+    <!-- Day 5: Footer Design -->
+    <section class="exercise" style="background: white; padding: var(--space-lg); border-radius: var(--radius-md); margin-bottom: var(--space-xl);">
+      <h2>Day 5: Responsive Footer</h2>
+      <p><em>✅ Implemented in index.html (see &lt;footer&gt;)</em></p>
+      <p>Responsive columns: 3 on desktop → 2 on tablet → 1 on mobile. Includes social icons and copyright.</p>
+    </section>
+
+    <p><a href="index.html" class="btn btn--secondary">← Back to Portfolio</a></p>
+  </div>
+</body>
+</html>

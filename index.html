@@ -3,26 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Michelle – Web Developer & Creative Thinker based in Nairobi">
   <title>Michelle – Portfolio</title>
   
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css">
- 
+  <!-- External CSS (Task 3.1) -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- Accessibility: Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
+  <!-- Header / Navigation -->
   <header>
-    <nav class="navbar">
-      <div class="logo">Michelle</div>
+    <nav class="navbar container">
+      <a href="#home" class="logo">Michelle</a>
       
-      <input type="checkbox" id="menu-toggle" class="menu-toggle">
-      <label for="menu-toggle" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- CSS-Only Hamburger Menu (Task 4.1) -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">
+      <label for="menu-toggle" class="hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
       </label>
       
       <ul class="nav-links">
@@ -33,232 +37,173 @@
       </ul>
     </nav>
   </header>
-  
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-  <div class="hero-content">
-     <section class="about-me">
-  <div class="about-container">
-    
-    <!-- Pink oval frame + photo -->
-    <div class="about-image">
-      <div class="photo-frame">
-        <img src="images/90881e72e0ba8c301ad8b89338846800_0.jpeg" alt="Michelle - Web Developer in Nairobi">
+  <main id="main-content">
+
+    <!-- Merged Hero + About Section -->
+<section id="home" class="hero-about">
+  <div class="hero-about__bg" aria-hidden="true"></div>
+  <div class="hero-about__overlay" aria-hidden="true"></div>
+  
+  <div class="container hero-about__content">
+    <div class="hero-about__grid">
+      
+      <!-- Photo Frame (Pink Oval) -->
+      <div class="hero-about__image">
+        <div class="photo-frame">
+          <img src="images/90881e72e0ba8c301ad8b89338846800_0.jpeg" 
+               alt="Michelle - Web Developer in Nairobi"
+               loading="lazy"
+               width="320"
+               height="500">
+        </div>
       </div>
-    </div>
-    
-    <!-- Text content on the right -->
-    <div class="about-text">
-      <h1>Hello, I'm Michelle</h1>
-      <p class="subtitle">Web Developer & Creative Thinker based in Nairobi</p>
       
-      <!-- Add more details about yourself here -->
-      <p>I'm a passionate web developer who loves building beautiful, functional, and user-friendly websites. With a keen eye for design and clean code, I create digital experiences that stand out.</p>
+      <!-- Text Content -->
+      <div class="hero-about__text">
+        <p class="hero-about__greeting">Hello, I'm</p>
+        <h1 class="hero-about__name">Michelle</h1>
+        <p class="hero-about__title">Web Developer & Creative Thinker based in Nairobi</p>
+        <p class="hero-about__bio">
+          I'm a passionate web developer who loves building beautiful, functional, and user-friendly websites. 
+          With a keen eye for design and clean code, I create digital experiences that stand out.
+        </p>
+        <div class="hero-about__actions">
+          <a href="#projects" class="btn btn--primary">See My Work</a>
+          <a href="#contact" class="btn btn--secondary">Get In Touch</a>
+        </div>
+      </div>
       
-      <a href="#projects" class="btn">See My Work</a>
     </div>
-    <style>
-    .about-me {
-  padding: 100px 20px;
-  background: #b2f1df;   /* light background like your screenshot */
-}
-
-.about-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 80px;               /* space between image and text */
-  flex-wrap: wrap;
-}
-
-.about-image {
-  flex: 1;
-  min-width: 280px;
-  display: flex;
-  justify-content: center;
-}
-
-.photo-frame {
-  position: relative;
-  width: 320px;            /* adjust size as needed */
-  height: 500px;           /* taller for portrait oval */       
-  border-radius: 800%;      /* makes it oval/elliptical */
-  padding: 15px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);  /* soft shadow like a real frame */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;       /* keeps proportions without stretching */
-  border-radius: 50%;      /* keeps the photo itself oval */
-}
-
-/* Text side */
-.about-text {
-  flex: 2;
-  min-width: 320px;
-}
-
-.about-text h1 {
-  font-size: 3.2rem;
-  color: #fafafa;          /* matches your red text */
-  margin-bottom: 8px;
-}
-
-.about-text .subtitle {
-  font-size: 1.35rem;
-  color: #444;
-  margin-bottom: 30px;
-}
-
-.about-text p {
-  font-size: 1.15rem;
-  line-height: 1.75;
-  color: #333;
-  margin-bottom: 25px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 14px 32px;
-  background: #3d7eaa;
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background: #c1121f;
-}
-
-/* Responsive: image stacks on top on mobile */
-@media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 50px;
-  }
-  
-  .photo-frame {
-    width: 260px;
-    height: 310px;
-    margin: 0 auto;
-  }
-}
-    </style>
   </div>
 </section>
 
-</div>
-
-  <!-- Projects -->
-        <!-- Projects -->
-      <section id="projects" class="projects">
-        <div class="container">
-          <h2>My Recent Projects</h2>
+    <!-- Projects Section (Task 4.2 + Day 2 Challenge) -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>My Recent Projects</h2>
+        <div class="projects-grid">
           
-          <div class="projects-grid">
-            
-            <!-- To-do List -->
-            <div class="project-card">
-              <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80" 
-                   alt="To-do List App">
-              <div class="card-content">
-                <h3>To-do List App</h3>
-                <p>Clean and intuitive task manager with add, edit, delete, and local storage features.</p>
-
-               <div class="project-links">
-                  <a href="https://coddy-m.github.io/todo-list-app/"
-                  target="_blank"
-                  class="btn demo-btn">Live demo</a>
+          <!-- Project 1: To-do List -->
+          <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80" 
+                 alt="To-do List App interface"
+                 loading="lazy">
+            <div class="card-content">
+              <h3>To-do List App</h3>
+              <p>Clean and intuitive task manager with add, edit, delete, and local storage features.</p>
+              <div class="card__tags">
+                <span class="card__tag">JavaScript</span>
+                <span class="card__tag">LocalStorage</span>
+                <span class="card__tag">Responsive</span>
+              </div>
+              <div class="project-links">
+                <a href="https://coddy-m.github.io/todo-list-app/" 
+                   target="_blank" 
+                   rel="noopener"
+                   class="btn btn--secondary">Live Demo</a>
               </div>
             </div>
-            
-            <!-- Weather App -->
-<div class="project-card">
-  <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800&q=80" 
-
-         alt="Weather App">
-    <div class="card-content">
-        <h3>Weather App</h3>
-        <p>Real-time weather application with location detection, 5-day forecast, and beautiful UI.</p>
-        
-        <!-- Demo & Code links -->
-        <div class="project-links">
-            <a href="https://coddy-m.github.io/weather-dashboard/" 
-               target="_blank" 
-               class="btn demo-btn">Live Demo</a>
-            
-        </div>
-    </div>
-</div>
+          </article>
+          
+          <!-- Project 2: Weather App -->
+          <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800&q=80" 
+                 alt="Weather App dashboard"
+                 loading="lazy">
+            <div class="card-content">
+              <h3>Weather App</h3>
+              <p>Real-time weather application with location detection, 5-day forecast, and beautiful UI.</p>
+              <div class="card__tags">
+                <span class="card__tag">API</span>
+                <span class="card__tag">Async/Await</span>
+                <span class="card__tag">Geolocation</span>
+              </div>
+              <div class="project-links">
+                <a href="https://coddy-m.github.io/weather-dashboard/" 
+                   target="_blank" 
+                   rel="noopener"
+                   class="btn btn--secondary">Live Demo</a>
               </div>
             </div>
-            
-            <!-- Calculator -->
-            <div class="project-card">
-              <img src="https://images.unsplash.com/photo-1764231467896-73f0ef4438aa?q=80&w=366&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                   alt="Calculator">
-              <div class="card-content">
-                <h3>Calculator</h3>
-                <p>Modern responsive calculator with dark mode support, history, and advanced operations.</p>
-        
+          </article>
+          
+          <!-- Project 3: Calculator -->
+          <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1764231467896-73f0ef4438aa?q=80&w=366&auto=format&fit=crop" 
+                 alt="Modern calculator interface"
+                 loading="lazy">
+            <div class="card-content">
+              <h3>Calculator</h3>
+              <p>Modern responsive calculator with dark mode support, history, and advanced operations.</p>
+              <div class="card__tags">
+                <span class="card__tag">CSS Grid</span>
+                <span class="card__tag">Dark Mode</span>
+                <span class="card__tag">Math Logic</span>
+              </div>
+              <div class="project-links">
+                <a href="https://coddy-m.github.io/calculator/" 
+                   target="_blank" 
+                   rel="noopener"
+                   class="btn btn--secondary">Live Demo</a>
               </div>
             </div>
-            
-          </div>
+          </article>
+          
         </div>
-      </section>
-        
-
-  
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Let's Work Together</h2>
-      <p class="contact-subtitle">Have a project in mind? Send me a message below.</p>
-      
-      <form id="contactForm" class="contact-form">
-        <div class="form-group">
-          <input type="text" id="name" name="name" required placeholder=" ">
-          <label for="name">Your Name *</label>
-        </div>
-        
-        <div class="form-group">
-          <input type="email" id="email" name="email" required placeholder=" ">
-          <label for="email">Your Email *</label>
-        </div>
-        
-        <div class="form-group">
-          <textarea id="message" name="message" rows="6" required placeholder=" "></textarea>
-          <label for="message">Your Message *</label>
-        </div>
-        
-        <button type="submit" class="btn submit-btn">Send Message</button>
-      </form>
-
-      <!-- Success Message (hidden by default) -->
-      <div id="successMessage" class="success-message">
-        ✅ Thank you, I will reply to you soon!
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
+    <!-- Contact Section (Day 4 Challenge) -->
+    <section id="contact" class="section" style="background: var(--color-background-alt);">
+      <div class="container">
+        <h2>Let's Work Together</h2>
+        <p class="contact-subtitle" style="text-align: center; margin-bottom: var(--space-xl);">
+          Have a project in mind? Send me a message below.
+        </p>
+        
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-group">
+            <input type="text" id="name" name="name" required placeholder=" " minlength="2">
+            <label for="name">Your Name *</label>
+            <span class="form-error">Name must be at least 2 characters.</span>
+          </div>
+          
+          <div class="form-group">
+            <input type="email" id="email" name="email" required placeholder=" ">
+            <label for="email">Your Email *</label>
+            <span class="form-error">Please enter a valid email address.</span>
+          </div>
+          
+          <div class="form-group">
+            <textarea id="message" name="message" rows="5" required placeholder=" " minlength="10"></textarea>
+            <label for="message">Your Message *</label>
+            <span class="form-error">Message must be at least 10 characters.</span>
+          </div>
+          
+          <button type="submit" class="btn submit-btn">Send Message</button>
+        </form>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success-message" role="status" aria-live="polite">
+          ✅ Thank you, I will reply to you soon!
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (Day 5 Challenge + Task 4.1) -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-col">
           <h3>Michelle</h3>
           <p>Web Developer based in Nairobi, creating clean & modern digital experiences.</p>
+          <div class="social-links">
+            <a href="https://github.com/coddy-m" target="_blank" rel="noopener" aria-label="GitHub">🐙</a>
+            <a href="#" aria-label="LinkedIn">💼</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+          </div>
         </div>
         <div class="footer-col">
           <h3>Quick Links</h3>
@@ -271,14 +216,15 @@
         </div>
         <div class="footer-col">
           <h3>Connect</h3>
-          <ul class="social-links">
-            <li><a href="https://github.com/coddy-m" target="_blank">GitHub</a></li>
-            
+          <ul>
+           
+            <li><a href="https://github.com/coddy-m" target="_blank">GitHub</a></li> 
+            <li>Nairobi, Kenya 🇰🇪</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Michelle. All rights reserved.</p>
+        <p>© <time datetime="2026">2026</time> Michelle. All rights reserved.</p>
       </div>
     </div>
   </footer>

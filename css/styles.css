@@ -1,0 +1,771 @@
+/* ========================================
+   1. RESET & BASE (Task 3.1)
+   ======================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video, svg, picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========================================
+   2. CSS VARIABLES (Tasks 3.3 & 3.4)
+   ======================================== */
+:root {
+  /* Typography Scale */
+  --font-xs: 0.75rem;    /* 12px */
+  --font-sm: 0.875rem;   /* 14px */
+  --font-base: 1rem;     /* 16px */
+  --font-lg: 1.125rem;   /* 18px */
+  --font-xl: 1.25rem;    /* 20px */
+  --font-2xl: 1.5rem;    /* 24px */
+  --font-3xl: 1.875rem;  /* 30px */
+  --font-4xl: 2.25rem;   /* 36px */
+
+  /* Font Families */
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Color Palette (Coolors-inspired) */
+  --color-primary: #3d7eaa;
+  --color-primary-light: #5a9fc9;
+  --color-primary-dark: #2a5a7a;
+  --color-secondary: #c1121f;
+  --color-background: #b2f1df;
+  --color-background-alt: #fafafa;
+  --color-text: #1a1a1a;
+  --color-text-light: #4a4a4a;
+  --color-muted: #6b7280;
+  --color-white: #ffffff;
+  --color-danger: #ef4444;
+  --color-disabled: #9ca3af;
+
+  /* Spacing System */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Layout & UI */
+  --container-max: 1200px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 20px rgba(0,0,0,0.15);
+  --transition: all 0.3s ease;
+}
+
+/* ========================================
+   3. TYPOGRAPHY SYSTEM (Task 3.3)
+   ======================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+h1 { font-size: var(--font-4xl); }
+h2 { font-size: var(--font-3xl); }
+h3 { font-size: var(--font-2xl); }
+h4 { font-size: var(--font-xl); }
+h5 { font-size: var(--font-lg); }
+h6 { font-size: var(--font-base); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+p { margin-bottom: var(--space-md); color: var(--color-text-light); }
+small, .text-sm { font-size: var(--font-sm); color: var(--color-muted); }
+.text-lg { font-size: var(--font-lg); }
+
+/* ========================================
+   4. LAYOUT UTILITIES
+   ======================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-3xl) var(--space-md);
+}
+
+/* ========================================
+   5. FLEXBOX LAYOUTS (Task 4.1)
+   ======================================== */
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) 0;
+  position: relative;
+  z-index: 100;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--font-xl);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: none;
+  list-style: none;
+  gap: var(--space-lg);
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+}
+
+/* Hamburger */
+.menu-toggle { display: none; }
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: var(--space-sm);
+  z-index: 101;
+}
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  transition: var(--transition);
+}
+
+/* Mobile menu open state */
+.menu-toggle:checked ~ .nav-links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-background-alt);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-md);
+}
+
+/* Tablet+ */
+@media (min-width: 768px) {
+  .hamburger { display: none; }
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+  }
+  .nav-links a:hover {
+    color: var(--color-primary);
+    background: rgba(61, 126, 170, 0.1);
+  }
+}
+
+/* Card Row (Flex) */
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  justify-content: center;
+}
+
+/* Footer (Flex) */
+.footer {
+  background: var(--color-text);
+  color: var(--color-background-alt);
+  padding: var(--space-2xl) 0 var(--space-md);
+}
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+}
+.footer-col { flex: 1 1 200px; min-width: 200px; }
+.footer-col h3 { color: var(--color-background-alt); margin-bottom: var(--space-md); font-size: var(--font-lg); }
+.footer-col ul { list-style: none; }
+.footer-col a { 
+  color: var(--color-muted); 
+  text-decoration: none; 
+  display: block; 
+  margin-bottom: var(--space-sm);
+  transition: var(--transition);
+}
+.footer-col a:hover { color: var(--color-primary-light); }
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-muted);
+  color: var(--color-muted);
+  font-size: var(--font-sm);
+}
+
+/* ========================================
+   6. GRID LAYOUTS (Task 4.2)
+   ======================================== */
+/* Projects Grid - Responsive */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: 1 column */
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); } /* Tablet: 2 columns */
+}
+
+@media (min-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(3, 1fr); } /* Desktop: 3 columns */
+}
+
+/* Photo Gallery (Exercise) */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+/* Magazine Layout (Exercise) */
+.magazine-grid {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "sidebar main"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr 1fr auto;
+  gap: var(--space-lg);
+  min-height: 80vh;
+}
+.magazine-header { grid-area: header; background: var(--color-primary-light); color: white; padding: var(--space-lg); text-align: center; border-radius: var(--radius-md); }
+.magazine-sidebar { grid-area: sidebar; background: var(--color-background-alt); padding: var(--space-lg); border-radius: var(--radius-md); }
+.magazine-main { grid-area: main; background: var(--color-white); padding: var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+.magazine-footer { grid-area: footer; background: var(--color-muted); color: white; padding: var(--space-md); text-align: center; border-radius: var(--radius-md); }
+
+/* ========================================
+   7. MOBILE-FIRST RESPONSIVE (Task 4.3)
+   ======================================== */
+/* Base: Mobile (default styles above) */
+
+/* Tablet */
+@media (min-width: 768px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--space-2xl);
+    min-height: 80vh;
+  }
+  .hero-content { text-align: left; }
+  
+  .about-container {
+    gap: var(--space-2xl);
+  }
+  
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .container { padding: 0 var(--space-lg); }
+  .section { padding: var(--space-3xl) 0; }
+}
+
+/* Large Desktop */
+@media (min-width: 1280px) {
+  :root { --container-max: 1400px; }
+}
+
+/* ========================================
+   8. COMPONENTS (Daily Challenges + Polish)
+   ======================================== */
+/* Day 1: Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-base);
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  border: 2px solid transparent;
+  background: var(--color-primary);
+  color: var(--color-white);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn:hover, .btn:focus-visible {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--secondary {
+  background: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.btn--secondary:hover, .btn--secondary:focus-visible {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn--danger {
+  background: var(--color-danger);
+  color: var(--color-white);
+}
+.btn--danger:hover { background: #dc2626; }
+
+.btn--disabled, .btn:disabled {
+  background: var(--color-disabled);
+  color: var(--color-white);
+  pointer-events: none;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Day 2: Reusable Card */
+.project-card, .card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.project-card:hover, .card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.project-card img, .card__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content, .card__body {
+  padding: var(--space-lg);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3, .card__title {
+  font-size: var(--font-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.card-content p, .card__desc {
+  color: var(--color-text-light);
+  margin-bottom: var(--space-md);
+  flex-grow: 1;
+}
+
+.card__tags {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+}
+.card__tag {
+  background: var(--color-background);
+  color: var(--color-muted);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-xs);
+  font-weight: 500;
+}
+
+.project-links, .card__btn {
+  margin-top: auto;
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* Day 3: Hero Section */
+/* ========================================
+/* ========================================
+   MERGED HERO + ABOUT SECTION (NO BLUE FILTER)
+   ======================================== */
+.hero-about {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--space-2xl) 0;
+  background: var(--color-background); /* Your original light mint: #b2f1df */
+  overflow: hidden;
+}
+
+/* ✅ REMOVED: Blue gradient & tint overlay */
+.hero-about__bg,
+.hero-about__overlay {
+  display: none; /* Completely removes the blue filter */
+}
+
+.hero-about__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-about__grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: stacked */
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+/* Image side with entrance animation */
+.hero-about__image {
+  display: flex;
+  justify-content: center;
+  order: 1;
+  animation: floatIn 1s ease-out forwards;
+}
+
+.photo-frame {
+  position: relative;
+  width: 280px;
+  height: 420px;
+  border-radius: 50%;
+  padding: 12px;
+  background: var(--color-secondary);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Smooth hover transition preserved */
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.3s ease;
+}
+
+/* ✅ Hover animation kept (no blue tint) */
+.photo-frame:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(193, 18, 31, 0.25);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--color-white);
+}
+
+/* Text side with slide-in animation */
+.hero-about__text {
+  order: 2;
+  text-align: center;
+  color: var(--color-text);
+  animation: slideUp 0.8s ease-out 0.3s both; /* 0.3s delay */
+}
+
+.hero-about__greeting {
+  font-size: var(--font-lg);
+  font-weight: 500;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.hero-about__name {
+  font-size: clamp(2.5rem, 8vw, var(--font-4xl));
+  color: var(--color-secondary);
+  margin-bottom: var(--space-sm);
+  line-height: 1.1;
+}
+
+.hero-about__title {
+  font-size: var(--font-xl);
+  color: var(--color-text-light);
+  margin-bottom: var(--space-lg);
+  font-weight: 400;
+}
+
+.hero-about__bio {
+  font-size: var(--font-lg);
+  line-height: 1.75;
+  color: var(--color-text);
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-about__actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ✅ Clean entrance animations (replaces blue filter effect) */
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Tablet+ Layout */
+@media (min-width: 768px) {
+  .hero-about__grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-3xl);
+  }
+  .hero-about__image { justify-content: flex-start; }
+  .hero-about__text { text-align: left; }
+  .hero-about__bio { margin-left: 0; margin-right: 0; }
+  .hero-about__actions { justify-content: flex-start; }
+  .photo-frame { width: 320px; height: 480px; }
+}
+
+@media (min-width: 1024px) {
+  .hero-about { min-height: 90vh; padding: var(--space-3xl) 0; }
+  .photo-frame { width: 360px; height: 540px; }
+}
+
+/* Accessibility: Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-about__image, 
+  .hero-about__text, 
+  .photo-frame {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Day 4: Form Styling */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--color-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: var(--space-lg);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-md);
+  padding-top: var(--space-lg);
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: var(--font-base);
+  background: var(--color-background-alt);
+  transition: var(--transition);
+}
+
+.form-group label {
+  position: absolute;
+  left: var(--space-md);
+  top: var(--space-md);
+  color: var(--color-muted);
+  font-size: var(--font-base);
+  pointer-events: none;
+  transition: var(--transition);
+  background: var(--color-background-alt);
+  padding: 0 var(--space-xs);
+}
+
+/* Floating label effect */
+.form-group input:focus,
+.form-group input:not(:placeholder-shown),
+.form-group textarea:focus,
+.form-group textarea:not(:placeholder-shown) {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(61, 126, 170, 0.2);
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: -0.75rem;
+  left: var(--space-sm);
+  font-size: var(--font-sm);
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* :invalid states (Day 4) */
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+  border-color: var(--color-danger);
+}
+
+.form-error {
+  color: var(--color-danger);
+  font-size: var(--font-sm);
+  margin-top: var(--space-xs);
+  display: none;
+}
+
+.form-group input:invalid:not(:placeholder-shown) + .form-error,
+.form-group textarea:invalid:not(:placeholder-shown) + .form-error {
+  display: block;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: var(--font-lg);
+}
+
+/* Success message */
+.success-message {
+  display: none;
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  background: #dcfce7;
+  color: #166534;
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 500;
+}
+
+.success-message.show {
+  display: block;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Day 5: Footer (Already in Flexbox section) */
+.social-links {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+.social-links a {
+  font-size: var(--font-xl);
+  text-decoration: none;
+}
+
+/* ========================================
+   9. POLISH & ACCESSIBILITY (Task 4.4)
+   ======================================== */
+/* Smooth transitions on all interactive elements */
+a, button, input, textarea, select, .btn, .card, .project-card {
+  transition: var(--transition);
+}
+
+/* Hover states */
+a:hover { color: var(--color-primary); }
+.project-card:hover { transform: translateY(-4px); }
+
+/* Focus states (Accessibility) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: white;
+  padding: var(--space-sm) var(--space-md);
+  z-index: 1000;
+  text-decoration: none;
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar, .footer, .btn, .hamburger { display: none; }
+  body { background: white; color: black; }
+  .section { padding: 1rem 0; }
+}
