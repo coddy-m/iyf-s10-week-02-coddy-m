@@ -104,85 +104,74 @@
                    class="btn btn--secondary">Live Demo</a>
               </div>
             </div>
-          </article>
-          
-          <!-- Project 2: Weather App -->
-          <article class="project-card">
-            <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800&q=80" 
-                 alt="Weather App dashboard"
-                 loading="lazy">
-            <div class="card-content">
-              <h3>Weather App</h3>
-              <p>Real-time weather application with location detection, 5-day forecast, and beautiful UI.</p>
-              <div class="card__tags">
-                <span class="card__tag">API</span>
-                <span class="card__tag">Async/Await</span>
-                <span class="card__tag">Geolocation</span>
-              </div>
-              <div class="project-links">
-                <a href="https://coddy-m.github.io/weather-dashboard/" 
-                   target="_blank" 
-                   rel="noopener"
-                   class="btn btn--secondary">Live Demo</a>
-              </div>
             </div>
-          </article>
-          
-          <!-- Project 3: Calculator -->
-          <article class="project-card">
-            <img src="https://images.unsplash.com/photo-1764231467896-73f0ef4438aa?q=80&w=366&auto=format&fit=crop" 
-                 alt="Modern calculator interface"
-                 loading="lazy">
-            <div class="card-content">
-              <h3>Calculator</h3>
-              <p>Modern responsive calculator with dark mode support, history, and advanced operations.</p>
-              <div class="card__tags">
-                <span class="card__tag">CSS Grid</span>
-                <span class="card__tag">Dark Mode</span>
-                <span class="card__tag">Math Logic</span>
-              </div>
-              <div class="project-links">
-                <a href="https://coddy-m.github.io/calculator/" 
-                   target="_blank" 
-                   rel="noopener"
-                   class="btn btn--secondary">Live Demo</a>
-              </div>
-            </div>
-          </article>
-          
-        </div>
-      </div>
-    </section>
+            
+            <!-- Weather App -->
+<div class="project-card">
+  <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800&q=80" 
 
-    <!-- Contact Section (Day 4 Challenge) -->
-    <section id="contact" class="section" style="background: var(--color-background-alt);">
-      <div class="container">
-        <h2>Let's Work Together</h2>
-        <p class="contact-subtitle" style="text-align: center; margin-bottom: var(--space-xl);">
-          Have a project in mind? Send me a message below.
-        </p>
+         alt="Weather App">
+    <div class="card-content">
+        <h3>Weather App</h3>
+        <p>Real-time weather application with location detection, 5-day forecast, and beautiful UI.</p>
         
-        <form id="contactForm" class="contact-form" novalidate>
-          <div class="form-group">
-            <input type="text" id="name" name="name" required placeholder=" " minlength="2">
-            <label for="name">Your Name *</label>
-            <span class="form-error">Name must be at least 2 characters.</span>
-          </div>
+        <!-- Demo & Code links -->
+        <div class="project-links">
+            <a href="https://coddy-m.github.io/weather-dashboard/" 
+               target="_blank" 
+               class="btn demo-btn">Live Demo</a>
+            
+        </div>
+    </div>
+</div>
           
-          <div class="form-group">
-            <input type="email" id="email" name="email" required placeholder=" ">
-            <label for="email">Your Email *</label>
-            <span class="form-error">Please enter a valid email address.</span>
-          </div>
-          
-          <div class="form-group">
-            <textarea id="message" name="message" rows="5" required placeholder=" " minlength="10"></textarea>
-            <label for="message">Your Message *</label>
-            <span class="form-error">Message must be at least 10 characters.</span>
-          </div>
-          
-          <button type="submit" class="btn submit-btn">Send Message</button>
-        </form>
+            
+            <!-- Calculator -->
+            <div class="project-card">
+              <img src="https://images.unsplash.com/photo-1764231467896-73f0ef4438aa?q=80&w=366&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                   alt="Calculator">
+              <div class="card-content">
+                <h3>Calculator</h3>
+                <p>Modern responsive calculator with dark mode support, history, and advanced operations.</p>
+
+                 <div class="project-links">
+            <a href="https://coddy-m.github.io/calculator//" 
+               target="_blank" 
+               class="btn demo-btn">Live Demo</a>
+        
+              </div>
+            </div>
+        </div>
+            
+        </div>
+      </section>
+        
+
+  
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Let's Work Together</h2>
+      <p class="contact-subtitle">Have a project in mind? Send me a message below.</p>
+      
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <input type="text" id="name" name="name" required placeholder=" ">
+          <label for="name">Your Name *</label>
+        </div>
+        
+        <div class="form-group">
+          <input type="email" id="email" name="email" required placeholder=" ">
+          <label for="email">Your Email *</label>
+        </div>
+        
+        <div class="form-group">
+          <textarea id="message" name="message" rows="6" required placeholder=" "></textarea>
+          <label for="message">Your Message *</label>
+        </div>
+        
+        <button type="submit" class="btn submit-btn">Send Message</button>
+      </form>
 
         <!-- Success Message -->
         <div id="successMessage" class="success-message" role="status" aria-live="polite">
